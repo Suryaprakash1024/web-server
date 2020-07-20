@@ -49,7 +49,8 @@ app.get('/weather',(req,res)=>{
         }
         else{
             // console.log(place)
-            weacode(lat,lon,(error,{temp,hum})=>{
+            try{
+            weacode(lat,lon,(error,{temp,hum}={})=>{
                 if(error){
                     return res.send({error})
                 }
@@ -62,6 +63,11 @@ app.get('/weather',(req,res)=>{
                             })
                 }
             })
+        }
+        catch(e){
+            console.log("temperature is undefined")
+            res.send({e})
+        }
         }
     })
 //--------------------------------------------   

@@ -9,7 +9,9 @@ const weacode =(lat,lon,callback) => {
         }
         else if(body.error){callback(body.error.info)}
         else{
+            // console.log('cant find temp',body.current.temperature)
             callback(undefined,{
+                
                 temp: body.current.temperature,
                 hum: body.current.humidity
             })
