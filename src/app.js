@@ -6,6 +6,7 @@ const geocode = require(path.join(__dirname,'../src/Geocode.js'))
 const weacode = require(path.join(__dirname,'../src/weather.js'))
 
 const app = express()
+const port = process.env.PORT || 3000
 
 app.use(express.static(path.join(__dirname,'../public')))
 
@@ -82,6 +83,6 @@ app.get('/products',(req,res)=>{
 app.get('*',(req,res)=>{
     res.send('404 error')
 })
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log('Its running')
 })
